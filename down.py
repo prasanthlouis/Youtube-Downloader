@@ -1,5 +1,9 @@
 import pafy
+from Tkinter import Tk
+r = Tk()
+r.withdraw()
 flag=0
+result=r.clipboard_get()
 type=raw_input("Hit 1 for video,2 for playlist")
 type=int(type)
 qual=raw_input("Hit 1 for best clarity, 2 for worst, 3 for other")
@@ -8,7 +12,7 @@ if qual==3:
 	flag=1
 c=0
 if type==1:
-	url = "https://www.youtube.com/watch?v=NTNp1IbNLzA"
+	url = result
 	video = pafy.new(url)
 	best = video.streams
 	for b in best:
@@ -27,7 +31,7 @@ if type==1:
 	x=filename.download(filepath=filename.title + "." + filename.extension)
 
 else:
-	url="http://www.youtube.com/playlist?list=PLs-C3tTf69dlw30_oE0GbT5j_SzZgcugk"
+	url=result
 	video=pafy.get_playlist(url)
 	for i in xrange(1,100):
 		c=0
